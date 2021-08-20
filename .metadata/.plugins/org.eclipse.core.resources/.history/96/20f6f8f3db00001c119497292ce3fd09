@@ -1,0 +1,10 @@
+package com.app.model;
+
+public class Product {
+
+	 private int productId;
+	 private String productName;
+	 private String productCompany;
+	 private String producCategory;
+	 private String productPrice;
+}

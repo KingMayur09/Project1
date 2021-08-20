@@ -1,0 +1,38 @@
+package com.app.customer.service.impl;
+
+import com.app.customer.service.CustomerCreateService;
+import com.app.dao.CustomerLoginDAO;
+import com.app.dao.impl.CustomerLoginDAOImpl;
+import com.app.exception.BusinessException;
+import com.app.model.Customer;
+import com.app.validation.Validation;
+import com.app.validationimpl.ValidationImpl;
+
+public class CustomerCreateServiceImpl implements CustomerCreateService {
+
+	@Override
+	public int createNewCustomer(Customer customer) throws BusinessException {
+		int c=0;
+		
+		CustomerLoginDAO customerLoginDao=new CustomerLoginDAOImpl();
+		Validation validate=new ValidationImpl();
+		if(!validate.isValidEmail()) {
+			throw new BusinessException("Invalid Email format "+email);
+		}
+		if(!validate.isValidEmail(customer.getFirstName())) {
+			throw new BusinessException("Invalid Email format "+email);
+		}
+		if(!validate.isValidPassword(customer.getLastName())) {
+			throw new BusinessException("password can contain only aplabates and number ");
+		}
+		if(!validate.isValidPassword(customer.getCity())) {
+			throw new BusinessException("password can contain only aplabates and number ");
+		}
+		if(!validate.isValidPassword(customer.getPassword())) {
+			throw new BusinessException("password can contain only aplabates and number ");
+		}
+		
+		return c;
+	}
+
+}

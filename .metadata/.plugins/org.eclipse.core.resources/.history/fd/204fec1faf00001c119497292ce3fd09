@@ -1,0 +1,16 @@
+package com.app.dao.impl;
+
+import com.app.dao.CustomerLoginDAO;
+import com.app.exception.BusinessException;
+import com.app.model.Customer;
+
+public class CustomerLoginDAOImpl implements CustomerLoginDAO{
+
+	@Override
+	public Customer CustomerLogin(String email, String password) throws BusinessException {
+		
+		return null;
+	}
+
+	
+}

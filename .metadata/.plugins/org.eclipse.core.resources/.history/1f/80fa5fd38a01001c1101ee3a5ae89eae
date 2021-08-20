@@ -1,0 +1,24 @@
+package com.app.dao;
+import com.app.dao.impl.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import com.app.dao.impl.CustomerLoginDAOImpl;
+import com.app.exception.BusinessException;
+import com.app.model.Customer;
+
+class test {
+
+	@Test
+	void testCustomerLogin() {
+		
+		try {
+			assertEquals(false, CustomerLoginDAOImpl.CustomerLogin("mayur@gmail.com","mayur@123"),"Invalid");
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

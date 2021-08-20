@@ -1,0 +1,157 @@
+package com.app;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
+import org.apache.log4j.Logger;
+
+import com.app.customer.service.CustomerCreateService;
+import com.app.customer.service.CustomerLoginService;
+import com.app.customer.service.impl.CustomerCreateServiceImpl;
+import com.app.customer.service.impl.CustomerLoginServiceImpl;
+import com.app.exception.BusinessException;
+import com.app.model.Customer;
+import com.app.util.MysqlDbConnection;
+import com.app.validation.Validation;
+import com.app.validationimpl.ValidationImpl;
+import com.mysql.cj.protocol.Resultset;
+
+public class Main {
+	private static Logger log = Logger.getLogger(Main.class);
+
+	public static void main(String[] args) {
+
+		Scanner scanner = new Scanner(System.in);
+		log.info("Welcome Alpha Shopping...");
+		log.info("===========================");
+		int choiceOfMain = 0;
+		do {
+			log.info("1.) Customer Login");
+			log.info("2.) Employee Login");
+			log.info("3.) New Customer Signup ");
+			log.info("4.) Exit");
+			log.info("\nEnter Your Choice Of Main");
+			choiceOfMain = Integer.parseInt(scanner.nextLine());
+
+			switch (choiceOfMain) {
+			case 1:
+				log.info("Enter Your Username :");
+				String email = scanner.nextLine();
+				log.info("Enter Your Password :");
+				String password = scanner.nextLine();
+
+				try {
+					Customer customer = null;
+					CustomerLoginService customerLogin = new CustomerLoginServiceImpl();
+					customer = customerLogin.isUserExist(email, password);
+					if (customer != null) {
+						int choiceOfLoggedInCustomer;
+						do {
+
+							log.info("Hello " + customer.getFirstName().toUpperCase() + " Happy Shopping...");
+							log.info("1.) Search Product");
+							log.info("2.) View Cart");
+							log.info("3.) view order");
+							log.info("4.) LogOut");
+							log.info("\nEnter Your Choice of logged In Customer");
+							choiceOfLoggedInCustomer = Integer.parseInt(scanner.nextLine());
+							switch (choiceOfLoggedInCustomer) {
+							case 1:
+								int ChoiceOfSearchProduct;
+								do {
+									log.info("How would you like to Search");
+									log.info("1.) Search By Product Name");
+									log.info("2.) Search By Product Branch/Company");
+									log.info("3.) Search By Product Category");
+									log.info("4.) Bach To Home Menu");
+									log.info("\nEnter Your Choice Of Search Product");
+									ChoiceOfSearchProduct = Integer.parseInt(scanner.nextLine());
+									switch (ChoiceOfSearchProduct) {
+									case 1:
+										log.info("under construction");
+
+										break;
+									case 2:
+										log.info("under construction");
+
+										break;
+									case 3:
+										log.info("under construction");
+
+										break;
+									case 4:
+
+										break;
+
+									default:
+										log.info("Provide Valid Input . Accepts only 1-4");
+										break;
+									}
+
+								} while (ChoiceOfSearchProduct != 4);
+
+								break;
+							case 2:
+								log.info("Under construction");
+
+								break;
+							case 3:
+								log.info("Under construction");
+
+								break;
+							case 4:
+								log.info("ThankYou For Shopping " + customer.getFirstName() + " Visit Again..:)");
+							default:
+								break;
+							}
+						} while (choiceOfLoggedInCustomer != 4); // logout and goto main main menu
+
+					}
+				} catch (BusinessException e) {
+					log.info(e.getMessage());
+				}
+
+				break;
+			case 2:
+				log.info("Employee Login");
+
+				break;
+			case 3:
+				log.info("        Sign Up        ");
+				log.info("========================");
+				Customer newCustomer=new Customer();
+				log.info("Enter your Email");
+				newCustomer.setEmail(scanner.nextLine());
+				log.info("Enter your First Name");
+				newCustomer.setFirstName(scanner.nextLine());
+				log.info("Enter your Last Name ");
+				newCustomer.setLastName(scanner.nextLine());
+				log.info("Enter your City");
+				newCustomer.setCity(scanner.nextLine());
+				log.info("Enter Password of Your Choice");
+				newCustomer.setPassword(scanner.nextLine());
+				CustomerCreateService createCustomer=new CustomerCreateServiceImpl();
+				try {
+					int c=createCustomer.createNewCustomer(newCustomer);
+					if(c==1) {log.info("Hello "+newCustomer.getFirstName()+" your account has successfully created :)");}
+				} catch (BusinessException e) {
+					log.info(e.getMessage());
+				}
+
+				break;
+			case 4:
+
+				break;
+
+			default:
+				log.info("Invalid Choice . Try Again :)");
+				break;
+			}
+
+		} while (choiceOfMain != 4); // Go out of AplhaShopping App
+
+	}
+
+}

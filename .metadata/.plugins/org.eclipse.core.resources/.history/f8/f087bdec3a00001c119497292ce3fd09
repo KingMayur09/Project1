@@ -1,0 +1,32 @@
+package com.app.dao.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import org.apache.log4j.Logger;
+
+import com.app.Main;
+import com.app.dao.CustomerServiceDAO;
+import com.app.exception.BusinessException;
+import com.app.util.MysqlDbConnection;
+import com.mysql.cj.xdevapi.PreparableStatement;
+
+public class CustomerServiceDAOImpl implements CustomerServiceDAO{
+	private static Logger log = Logger.getLogger(Main.class);
+	@Override
+	public boolean CustomerLogin(String userName, String password) throws BusinessException {
+		boolean isUserExist=false;
+		try(Connection connection =MysqlDbConnection.getConnection()){
+			String sql="select userName ,userPassword from customercrendential where userName=? and userPassword =?";
+		PreparedStatement preparedStatement=connection.prepareStatement(sql);
+		preparedStatement.setString(1,userName );
+		preparedStatement.setString(1,password );
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			log.warn("Internal error occured");
+		}
+		return true;
+	}
+
+}

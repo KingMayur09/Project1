@@ -1,0 +1,16 @@
+package com.app.customer.service.impl;
+
+import com.app.customer.service.CustomerServicePlaceOrder;
+import com.app.exception.BusinessException;
+import com.app.model.Cart;
+
+public class CustomerServicePlaceOrderImpl implements CustomerServicePlaceOrder {
+
+	@Override
+	public int placeOrder(Cart cart) throws BusinessException {
+		
+		return 1;
+	}
+
+	
+}

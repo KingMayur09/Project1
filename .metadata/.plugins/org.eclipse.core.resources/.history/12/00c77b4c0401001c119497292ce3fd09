@@ -1,0 +1,12 @@
+package com.app.customer.service;
+
+import com.app.exception.BusinessException;
+import com.app.model.Product;
+
+public interface CustomerSearchServices {
+	
+	public Product productSearchByName(String productName) throws BusinessException;
+	public Product productSearchByCompany(String productCompany) throws BusinessException;
+	public Product productSearchByCategory(String productCategory) throws BusinessException;
+
+}

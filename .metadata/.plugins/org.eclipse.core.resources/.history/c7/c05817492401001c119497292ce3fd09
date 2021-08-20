@@ -1,0 +1,24 @@
+package com.app.dao.impl;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import org.apache.log4j.Logger;
+
+import com.app.dao.CustomerAddToCardDAO;
+import com.app.exception.BusinessException;
+import com.app.util.MysqlDbConnection;
+
+public class CustomerAddToCartDAOImpl implements CustomerAddToCardDAO{
+	public static Logger log=Logger.getLogger(main.class);
+	@Override
+	public void addToCart(int productId, String email, int quantity) throws BusinessException {
+		try(Connection connection =MysqlDbConnection.getConnection()){
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			log.info("Internal Error Occured");
+		}
+		
+	}
+
+}

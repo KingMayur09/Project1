@@ -1,0 +1,47 @@
+package com.app.dao.impl;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import org.apache.log4j.Logger;
+
+import com.app.Main;
+import com.app.dao.CustomerSearchServicesDAO;
+import com.app.exception.BusinessException;
+import com.app.model.Product;
+import com.app.util.MysqlDbConnection;
+
+public class CustomerSearchServicesDAOImpl implements CustomerSearchServicesDAO {
+	public static Logger log = Logger.getLogger(Main.class);
+
+	@Override
+	public Product productSearchByName(String productName) throws BusinessException {
+		try (Connection connection = MysqlDbConnection.getConnection()) {
+
+		} catch (ClassNotFoundException | SQLException e) {
+			log.warn("Internal error Occured");
+		}
+		return null;
+	}
+
+	@Override
+	public Product productSearchByCompany(String productCompany) throws BusinessException {
+		try (Connection connection = MysqlDbConnection.getConnection()) {
+
+		} catch (ClassNotFoundException | SQLException e) {
+			log.warn("Internal error Occured");
+		}
+		return null;
+	}
+
+	@Override
+	public Product productSearchByCategory(String productCategory) throws BusinessException {
+		try (Connection connection = MysqlDbConnection.getConnection()) {
+
+		} catch (ClassNotFoundException | SQLException e) {
+			log.warn("Internal error Occured");
+		}
+		return null;
+	}
+
+}

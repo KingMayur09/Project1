@@ -1,0 +1,8 @@
+package com.app.customer.service;
+
+import com.app.exception.BusinessException;
+
+public interface CustomerLoginService {
+
+	public boolean isUserExist(String email,String password) throws BusinessException;
+}

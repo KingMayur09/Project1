@@ -1,0 +1,24 @@
+package com.app.employee.service.impl;
+
+import com.app.employee.service.EmployeeLoginService;
+import com.app.exception.BusinessException;
+import com.app.validation.Validation;
+import com.app.validationimpl.ValidationImpl;
+
+public class EmployeeLoginServiceImpl implements EmployeeLoginService{
+
+	@Override
+	public boolean isEmployeeExist(String email, String password) throws BusinessException {
+		
+		
+		Validation validate=new ValidationImpl();
+		if(!validate.isValidEmail(email)) {
+			throw new BusinessException("Invalid Email format "+email);
+		}
+		if(!validate.isValidPassword(password)) {
+			throw new BusinessException("password can contain only aplabates and number ");
+		}
+		return false;
+	}
+
+}

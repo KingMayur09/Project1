@@ -1,0 +1,50 @@
+package com.app.customer.service.impl;
+
+import org.apache.log4j.Logger;
+
+import com.app.Main;
+import com.app.customer.service.CustomerSearchServices;
+import com.app.dao.CustomerSearchServicesDAO;
+import com.app.dao.impl.CustomerSearchServicesDAOImpl;
+import com.app.exception.BusinessException;
+import com.app.model.Product;
+import com.app.validation.Validation;
+import com.app.validationimpl.ValidationImpl;
+
+public class CustomerSearchServicesImpl implements CustomerSearchServices{
+	Validation validate=new ValidationImpl();
+	public static Logger log=Logger.getLogger(Main.class);
+	@Override
+	public Product productSearchByName(String productName) throws BusinessException {
+		Product product=null;
+		if(!validate.isValidString(productName) || productName==null) {
+			 throw new BusinessException("product name should not contain special character or number and must not null");
+		}
+		CustomerSearchServicesDAO customerSearchServicesDAO = new CustomerSearchServicesDAOImpl();
+		product=customerSearchServicesDAO.productSearchByName(productName);
+		return product;
+	}
+
+	@Override
+	public Product productSearchByCompany(String productCompany) throws BusinessException {
+		Product product=null;
+		if(!validate.isValidString(productName) || productName==null) {
+			 throw new BusinessException("product name should not contain special character or number and must not null");
+		}
+		CustomerSearchServicesDAO customerSearchServicesDAO = new CustomerSearchServicesDAOImpl();
+		product=customerSearchServicesDAO.productSearchByCompany(productCompany);
+		return product;
+	}
+
+	@Override
+	public Product productSearchByCategory(String productCategory) throws BusinessException {
+		Product product=null;
+		if(!validate.isValidString(productCategory) || productCategory==null) {
+			 throw new BusinessException("product name should not contain special character or number and must not null");
+		}
+		CustomerSearchServicesDAO customerSearchServicesDAO = new CustomerSearchServicesDAOImpl();
+		product=customerSearchServicesDAO.productSearchByCategory(productCategory);
+		return product;
+	}
+
+}

@@ -1,0 +1,11 @@
+package com.app.dao;
+
+import com.app.exception.BusinessException;
+import com.app.model.Product;
+
+public interface CustomerSearchServicesImpl {
+
+	public Product productSearchByName(String productName) throws BusinessException;
+	public Product productSearchByCompany(String productCompany) throws BusinessException;
+	public Product productSearchByCategory(String productCategory) throws BusinessException;
+}

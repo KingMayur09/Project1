@@ -1,0 +1,5 @@
+package com.app.employee.service.impl;
+
+public class EmployeeAddNewProductServiceImpl {
+
+}

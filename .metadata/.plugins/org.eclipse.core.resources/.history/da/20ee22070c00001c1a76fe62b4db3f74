@@ -1,0 +1,30 @@
+package com.app.customer.service.impl;
+
+import com.app.customer.service.CustomerService;
+import com.app.exception.BusinessException;
+import com.app.validation.Validation;
+import com.app.validationimpl.ValidationImpl;
+
+public class CustomerServiceImpl implements CustomerService{
+
+	@Override
+	public int isValidCreatential(String email, String password) throws BusinessException {
+		Validation validate=new ValidationImpl();
+		if(!validate.isValidEmail(email)) {
+			throw new BusinessException("Invalid Email id "+email);
+		}
+		if(!validate.isValidPassword(password)) {
+			throw new BusinessException(" 1.)a digit must occur at least once\r\n" + 
+					"2.) a lower case letter must occur at least once\r\n" + 
+					"3.) an upper case letter must occur at least once\r\n" + 
+					"4.) a special character must occur at least once\r\n" + 
+					"5.) no whitespace allowed in the entire string\r\n" + 
+					"6.)at least 8 characters ");
+		}
+		
+		int c=1;
+		return c;
+	}
+
+
+}

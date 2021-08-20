@@ -1,0 +1,9 @@
+package com.app.customer.service;
+
+import com.app.exception.BusinessException;
+
+public interface CustomerService {
+
+	
+	public boolean isValidCreatential(String email,String password) throws BusinessException;
+}

@@ -1,0 +1,5 @@
+package com.app.employee.service;
+
+public interface EmployeeSearchService {
+
+}

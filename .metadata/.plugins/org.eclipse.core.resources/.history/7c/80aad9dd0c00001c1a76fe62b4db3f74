@@ -1,0 +1,59 @@
+package com.app;
+
+import java.util.Scanner;
+
+import org.apache.log4j.Logger;
+
+public class Main {
+	private static Logger log = Logger.getLogger(Main.class);
+
+	public static void main(String[] args) {
+
+		Scanner scanner = new Scanner(System.in);
+		log.info("Welcome Alpha Shopping...");
+		log.info("===========================");
+		int choice = 0;
+		do {
+			log.info("1.) Customer Login");
+			log.info("2.) Employee Login");
+			log.info("3.) New Customer Signup ");
+			log.info("4.) Exit");
+			log.info("\nEnter Your Choice");
+			choice = Integer.parseInt(scanner.nextLine());
+
+			switch (choice) {
+			case 1:
+				log.info("Enter Your Username :");
+				String customerUsername=scanner.nextLine();
+				log.info("Enter Your Password :");
+				String customerPassword=scanner.nextLine();
+				
+
+				break;
+			case 2:
+				log.info("Enter Your Username :");
+				String employeeUserName=scanner.nextLine();
+				log.info("Enter Your Password :");
+				String employeePassword=scanner.nextLine();
+				
+
+				break;
+			case 3:
+				log.info("under Construction");
+
+				break;
+			case 4:
+				
+
+				break;
+
+			default:
+				log.info("Invalid Choice . Try Again :)");
+				break;
+			}
+
+		} while (choice != 4);
+
+	}
+
+}

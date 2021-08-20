@@ -1,0 +1,27 @@
+package com.app.dao.impl;
+
+import com.app.dao.CustomerSearchServicesDAO;
+import com.app.exception.BusinessException;
+import com.app.model.Product;
+
+public class CustomerSearchServicesDAOImpl implements CustomerSearchServicesDAO{
+
+	@Override
+	public Product productSearchByName(String productName) throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Product productSearchByCompany(String productCompany) throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Product productSearchByCategory(String productCategory) throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

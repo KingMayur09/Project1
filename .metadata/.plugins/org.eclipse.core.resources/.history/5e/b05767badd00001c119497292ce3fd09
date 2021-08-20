@@ -1,0 +1,15 @@
+package com.app.dao.impl;
+
+import com.app.dao.EmployeeLoginDAO;
+import com.app.exception.BusinessException;
+import com.app.model.Employee;
+
+public class EmployeeLoginDAOImpl implements EmployeeLoginDAO{
+
+	@Override
+	public Employee isEmployeeExist(String email, String password) throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

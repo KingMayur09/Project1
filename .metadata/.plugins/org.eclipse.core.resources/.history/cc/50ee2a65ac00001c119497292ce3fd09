@@ -1,0 +1,18 @@
+package com.app.customer.service.impl;
+
+import com.app.customer.service.CustomerLoginService;
+import com.app.exception.BusinessException;
+import com.app.model.Customer;
+
+public class CustomerLoginServiceImpl implements CustomerLoginService{
+
+	@Override
+	public Customer isUserExist(String email, String password) throws BusinessException {
+		Customer customer=null;
+		
+		
+		
+		return customer;
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.app.dao;
+
+import com.app.exception.BusinessException;
+
+public interface CustomerAddToCardDAO {
+	
+	public void addToCart(int productId,String email,int quantity) throws BusinessException;
+
+}

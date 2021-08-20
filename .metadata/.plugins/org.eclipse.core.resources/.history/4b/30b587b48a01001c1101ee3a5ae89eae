@@ -1,0 +1,17 @@
+package com.app.dao;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import com.app.dao.impl.CustomerLoginDAOImpl;
+import com.app.model.Customer;
+
+class test {
+
+	@Test
+	void testCustomerLogin() {
+		assertEquals(false, CustomerLoginDAOImpl.customerLogin("mayur@gmail.com","mayur@123"),"Invalid");
+	}
+
+}

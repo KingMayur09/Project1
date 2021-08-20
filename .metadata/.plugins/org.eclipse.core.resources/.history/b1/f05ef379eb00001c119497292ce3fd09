@@ -1,0 +1,15 @@
+package com.app.dao.impl;
+
+import com.app.dao.EmployeeAddNewProductDAO;
+import com.app.exception.BusinessException;
+import com.app.model.Product;
+
+public class EmployeeAddNewProductDAOImpl implements EmployeeAddNewProductDAO{
+
+	@Override
+	public int addNewProduct(Product product) throws BusinessException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}
