@@ -19,12 +19,16 @@ public class CustomerPlaceOrderDAOImpl implements CustomerPlaceOrderDAO {
 		int c = 0;
 		try (Connection connection = MysqlDbConnection.getConnection()) {
 
-			String sql = "insert into order (orderId,email,productId,productName,productPrice,quantity)"
-					+ " select cartid,cartEmail,cartProductId,cartProductName,cartProductPrice,quantity from cart c where c.cartEmail=?";
+			String sql = "insert into alpha_shopping.order (email,productId,productName,productPrice,quantity) select cartEmail,cartProductId,cartProductName,cartProductPrice,quantity from cart c where c.cartEmail=?";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, email);
 			c = preparedStatement.executeUpdate();
-			if(c>0) {log.info("succecc order");}
+			if(c>0) {log.info("success order");
+				String sql2="delete from cart where cartEmail=?";
+				PreparedStatement preparedStatement1 = connection.prepareStatement(sql2);
+				preparedStatement1.setString(1, email);
+				preparedStatement1.executeUpdate();
+			}
 		} catch (ClassNotFoundException | SQLException e) {
 			log.info("Internal Error occured");
 		}

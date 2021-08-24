@@ -7,6 +7,18 @@ public class Order {
 	private String productName;
 	private int quantity;
 	private String status;
+	private double productPrice;
+	
+	public Order() {
+		
+	}
+	
+	public double getProductPrice() {
+		return productPrice;
+	}
+	public void setProductPrice(double productPrice) {
+		this.productPrice = productPrice;
+	}
 	public int getOrderid() {
 		return orderid;
 	}
@@ -43,7 +55,8 @@ public class Order {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Order(int orderid, String email, int productId, String productName, int quantity, String status) {
+	public Order(int orderid, String email, int productId, String productName, int quantity, String status,
+			double productPrice) {
 		super();
 		this.orderid = orderid;
 		this.email = email;
@@ -51,12 +64,16 @@ public class Order {
 		this.productName = productName;
 		this.quantity = quantity;
 		this.status = status;
+		this.productPrice = productPrice;
 	}
 	@Override
 	public String toString() {
 		return "Order [orderid=" + orderid + ", email=" + email + ", productId=" + productId + ", productName="
-				+ productName + ", quantity=" + quantity + ", status=" + status + "]";
+				+ productName + ", quantity=" + quantity + ", status=" + status + ", productPrice=" + productPrice
+				+ "]";
 	}
+
+	
 	
 
 }
